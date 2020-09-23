@@ -32,7 +32,7 @@ let blackjackGame = {
 let YOU = blackjackGame["you"];
 let DEALER = blackjackGame["dealer"];
 
-const hitSound = new Audio("static/sounds/swish.m4a");
+const hitSound = new Audio("audio/swish.m4a");
 
 function hitButton() {
   var card = randomCard();
@@ -66,7 +66,7 @@ function randomCard() {
 function showCard(card, player) {
   if (player["score"] <= 21) {
     let image = document.createElement("img");
-    image.src = `static/img/${card}.png`;
+    image.src = `images/${card}.png`;
     document.querySelector(player["div"]).appendChild(image);
     hitSound.play();
   }
