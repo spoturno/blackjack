@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlakJack</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/static/CSS/style2.css" />
+  </head>
+
+  <body>
+    <div class="container-1">
+      <h1 id="title">BlackJack</h1>
+
+      <div class="flex-box-container-1">
+        <h3><span id="some-text"> Lets's Play</span></h3>
+      </div>
+
+      <div class="flex-container-2">
+        <h3>Dealer :<span id="dealer-bkj-result"> 0</span></h3>
+        <div id="dealer-box"></div>
+        <h3>You :<span id="your-bkj-result"> 0</span></h3>
+        <div id="your-box"></div>
+      </div>
+
+      <div class="container-2">
+        <div class="flex-container-bet" id="bkj-apuesta">
+          <h3>here goes the bet</h3>
+        </div>
+      </div>
+
+      <div class="flex-blackjack-row-2">
+        <div>
+          <button class="btn-lg btn-primary mr-2" id="blackjack-hit-btn">
+            Hit
+          </button>
+          <button class="btn-lg btn-warning mr-2" id="blackjack-stand-btn">
+            Stand
+          </button>
+          <button class="btn-lg btn-danger mr-2" id="blackjack-deal-btn">
+            Deal
+          </button>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="flex-container-3">
+        <h2>Stats</h2>
+        <table>
+          <tr>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Draws</th>
+          </tr>
+          <tr>
+            <td><span id="wins"></span></td>
+            <td><span id="losses"></span></td>
+            <td><span id="draws"></span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script src="static/Js/blackjack.js"></script>
+  </body>
+</html>
