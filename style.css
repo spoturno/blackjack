@@ -52,8 +52,14 @@
   margin: 0 auto;
 }
 .container-2 {
+  padding: 10px;
   background: #ebe632;
   height: 200px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-style: solid;
+  border-bottom-color: #8b4513;
+  border-bottom-width: 30px;
 }
 
 .flex-box-container-1 {
@@ -63,14 +69,15 @@
   background: #ebe632;
 }
 .flex-container-bet {
-  border-radius: 100px;
+  border-radius: 100%;
+
   padding: 10px;
   margin: 0 auto;
   border-style: solid;
-  width: 35%;
+  width: 30%;
   text-align: center;
   background: #b7b31d;
-  height: 180px;
+  height: 150px;
 }
 
 table,
