@@ -1,6 +1,6 @@
 # Blackjack-Game
 Blackjack game made with HTML, CSS, JavaScipt
-
+>Blackjack game made with HTML, CSS and JavaScript. Hope you like it :smiley:
 ## installation
 ### Prerequisites
 Is a JavaScipt game so familiarity with JavaScipt is required. It is also recommended that you have git installed.
