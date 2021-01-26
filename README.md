@@ -1,4 +1,4 @@
-# Blackjack-Game
+# Blackjack-game
 Blackjack game made with HTML, CSS, JavaScipt
 >Blackjack game made with HTML, CSS and JavaScript. Hope you like it :smiley:
 ## installation
