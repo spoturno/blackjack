@@ -82,8 +82,7 @@ function dealCardsTimer(player, time) {
 
 // randomCard: Returns array with [0] being the card number and [1] being the suit
 function randomCard() {
-  let i = Math.floor(Math.random() * 13); // Maybe instead of declaring a variable move this piece of code directly into the array?
-  return [ blackjackGame["cards"][i], blackjackGame["suits"][Math.floor(Math.random()*4)] ];
+	return [ blackjackGame["cards"][Math.floor(Math.random() * 13)], blackjackGame["suits"][Math.floor(Math.random()*4)] ];
 }
 
 function showCard(card, player) {
