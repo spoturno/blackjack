@@ -51,12 +51,17 @@ function resetGame() {
 }
 
 function hitButton() {
-  dealCARDS(YOU)
+	// If you pressed stand, then you shouldn't be able to request a new card
+	if (YOU["standing"]){
+		return;
+	}
+	
+	dealCARDS(YOU)
 
-  //auto deal
-  if (YOU["score"] > 21) {
-    standButton();
-  }
+	//auto deal
+	if (YOU["score"] > 21) {
+		standButton();
+	}
 }
 
 function dealCARDS(playerD) {
@@ -112,7 +117,13 @@ function showScore(player) {
 }
 
 function standButton() {
+	// If you pressed stand, then return to avoid bugs
+	if (YOU["standing"]){
+		return;
+	}
+	
 	YOU["standing"] = true;
+	togButton("hit", false, true)
 	
 	//fix
 	const finalDeal = window.setInterval(function () {
