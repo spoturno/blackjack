@@ -16,6 +16,10 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: #acc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
 .game__box {
@@ -36,6 +40,7 @@ body {
 /*Table section*/
 .game__box-table {
   position: absolute;
+  margin: auto;
   left: 50%;
   top: 0;
   transform: translate(-50%, -50%);
@@ -53,6 +58,58 @@ body {
   margin: auto;
 }
 
+/*Card style and animation*/
+.game__box-cards-deck {
+}
+
+.card {
+  position: absolute;
+  top: 10px;
+  width: 160px;
+  height: 250px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  font-size: 1.5em;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.card::before,
+.card::after {
+  content: attr(data-value);
+}
+
+.card::before
+
+/* Cards section*/
+.game__box-table-cards {
+  margin: auto;
+  width: 1500px;
+  height: 633px;
+  background: transparent;
+  position: absolute;
+  z-index: 50;
+  top: 722px;
+  display: flex;
+  flex-direction: column;
+}
+
+.game__box-cards-dealer {
+  height: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.game__box-cards-player {
+  text-align: center;
+  height: 50%;
+  display: flex;
+}
 /*Buttons section*/
 .game__buttons {
   text-align: center;
