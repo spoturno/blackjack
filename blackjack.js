@@ -1,16 +1,16 @@
 document
-  .querySelector("#blackjack-hit-btn")
+  .querySelector("#hit-button")
   .addEventListener("click", hitButton);
 document
-  .querySelector("#blackjack-stand-btn")
+  .querySelector("#stand-button")
   .addEventListener("click", standButton);
 document
-  .querySelector("#blackjack-deal-btn")
+  .querySelector("#deal-button")
   .addEventListener("click", dealButton);
 
 let blackjackGame = {
-  you: { scoreSpan: "#your-bkj-result", div: "#your-box", score: 0, standing: false },
-  dealer: { scoreSpan: "#dealer-bkj-result", div: "#dealer-box", score: 0 },
+  you: { scoreSpan: "#player-result", div: "#game__box-player", score: 0, standing: false },
+  dealer: { scoreSpan: "#dealer-result", div: "#game__box-dealer", score: 0 },
   cards: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "J", "Q", "A"],
   suits: ["S", "C", "H", "D"],
   cardsMap: {
@@ -39,13 +39,13 @@ const hitSound = new Audio("audio/swish.m4a");
 function resetGame() {
 	YOU["score"] = 0;
 	YOU["standing"] = false; // If you pressed stand, then you wont be able to pick more cards. Needed in order to make the game finish if no one is on "bust" state
-	document.getElementById("your-box").innerHTML = "";
+	document.getElementById("game__box-player").innerHTML = "";
 	document.querySelector(YOU["scoreSpan"]).textContent = " " + YOU["score"];
 	document.querySelector(YOU["scoreSpan"]).style.color = "black";
 	
 	DEALER["score"] = 0;
 	DEALER["div"].innerHTML = "";
-	document.getElementById("dealer-box").innerHTML = "";
+	document.getElementById("game__box-dealer").innerHTML = "";
 	document.querySelector(DEALER["scoreSpan"]).textContent = " " + DEALER["score"];
 	document.querySelector(DEALER["scoreSpan"]).style.color = "black";
 }
@@ -88,7 +88,9 @@ function randomCard() {
 function showCard(card, player) {
   if (player["score"] <= 21) {
     let image = document.createElement("img");
-    image.src = `images/${card[0]}${card[1]}.png`;
+	image.src = `images/${card[0]}${card[1]}.png`;
+	image.style.height = "200px"
+	image.style.width = "150px"
     document.querySelector(player["div"]).appendChild(image);
     hitSound.play();
   }
@@ -166,7 +168,7 @@ function togButton(name, state, instant) {
 	}
 	
 	// Get the button, if it does not exist then return false
-	var btn = document.querySelector("#blackjack-" + name + "-btn");
+	var btn = document.querySelector(`#${name}-button`);
 	if (!btn){
 		return false;
 	}
@@ -233,7 +235,11 @@ function computeWinner() {
 		else if (YOU["score"] > DEALER["score"]) {
 			winner = YOU;
 		}
-		// Draw
+		//Draw 
+		else if(YOU["score"]===DEALER["score"]){
+			winner="DRAW";
+
+		}
 		else {
 			// TODO
 			// This code will only make the game restart, this isn't how it should work
@@ -263,6 +269,15 @@ function computeWinner() {
 		document.querySelector(DEALER["scoreSpan"]).textContent = "WON (" + DEALER["score"] + ")";
 		document.querySelector(DEALER["scoreSpan"]).style.color = "green";
 	}
+	//If it is a draw
+	else if (winner === "DRAW"){
+		document.querySelector(YOU["scoreSpan"]).textContent = "DRAW (" + YOU["score"] + ")";
+		document.querySelector(DEALER["scoreSpan"]).textContent = "DRAW (" + DEALER["score"] + ")";
+		document.querySelector(YOU["scoreSpan"]).style.color = "yellow";
+		document.querySelector(DEALER["scoreSpan"]).style.color = "yellow";
+
+	}
+
 	
 	togButton("deal", true);
 	togButton("hit", false, true);
