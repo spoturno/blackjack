@@ -1,68 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlakJack</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    <meta charset="utf-8" />
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="./style-copy.css" />
+    <meta />
   </head>
-
   <body>
-    <div class="container-1">
-      <h1 id="title">BlackJack</h1>
-
-      <div class="flex-box-container-1">
-        <h3><span id="some-text"> Lets's Play</span></h3>
+    <div class="game">
+      <div class="game__header">
+        <h1>Blackjack</h1>
       </div>
-
-      <div class="flex-container-2">
-        <h3>Dealer :<span id="dealer-bkj-result"> 0</span></h3>
-        <div id="dealer-box"></div>
-        <h3>You :<span id="your-bkj-result"> 0</span></h3>
-        <div id="your-box"></div>
-      </div>
-
-      <div class="container-2">
-        <div class="flex-container-bet" id="bkj-apuesta">
-          <h3>Bet</h3>
+      <div class="game__box">
+        <div class="game__box-table">
+          <div class="game__box-table-cards">
+            <div class="game__box-cards-dealer" id="game__box-dealer"></div>
+            <div class="game__box-points-dealer">
+              Dealer: <span id="dealer-result">0</span>
+            </div>
+            <div class="game__box-cards-player" id="game__box-player"></div>
+            <div class="game__box-points-player">
+              You: <span id="player-result">0</span>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="flex-blackjack-row-2">
-        <div>
-          <button class="btn-lg btn-primary mr-2" id="blackjack-hit-btn">
-            Hit
-          </button>
-          <button class="btn-lg btn-warning mr-2" id="blackjack-stand-btn">
-            Stand
-          </button>
-          <button class="btn-lg btn-danger mr-2" id="blackjack-deal-btn">
-            Deal
-          </button>
-        </div>
+      <div class="game__buttons">
+        <input class="game__buttons-input" type="text" />
+        <button class="game__buttons-button" id="bet">Bet</button>
+        <button class="game__buttons-button" id="deal-button">deal</button>
+        <button class="game__buttons-button" id="stand-button">Stand</button>
+        <button class="game__buttons-button" id="hit-button">Hit</button>
       </div>
-
-      <br />
-
-      <div class="flex-container-3">
-        <h2>Stats</h2>
-        <table>
-          <tr>
-            <th>Wins</th>
-            <th>Losses</th>
-            <th>Draws</th>
-          </tr>
-          <tr>
-            <td><span id="wins"></span></td>
-            <td><span id="losses"></span></td>
-            <td><span id="draws"></span></td>
-          </tr>
-        </table>
+      <div class="game__stats">
+        <h3>Balance: <b>$</b><span id="game-money">1000</span></h3>
+        <h3>Win streak: <span id="game-strek">2</span></h3>
+        <h3><a href="#">History</a></h3>
       </div>
     </div>
-
     <script src="./blackjack.js"></script>
   </body>
 </html>
+
+<!--Notas en Desarrollo
+
+> fix card
+> finish styling card
+> fixed cards element
+> show a series of cards
+> animate showing cards
+> make the game script
+
+-->
