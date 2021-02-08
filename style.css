@@ -1,118 +1,121 @@
-.container-1 {
-  border: 1px solid black;
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+}
+
+.game__header {
   text-align: center;
-  width: 75%;
-  margin: 0 auto;
 }
 
-.flex-box-container-1 {
+.game {
+  height: 100vh;
+  width: 100vw;
+  background-color: #acc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.game__box {
+  margin: auto;
+  font-size: 2em;
+  height: 70%;
+  text-align: center;
+  background-color: #093;
+}
+
+/*Header section*/
+.game__header {
+  position: relative;
+  z-index: 10;
+  background-color: yellow;
+}
+
+/*Table section*/
+.game__box-table {
+  position: absolute;
+  margin: auto;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  height: 1400px;
+  width: 1500px;
+  border-radius: 0 0 1450px 1450px;
+  border: 15px solid #873600;
+  background: rgb(0, 142, 58);
+  background: radial-gradient(
+    circle,
+    rgba(0, 142, 58, 1) 0%,
+    rgba(0, 54, 22, 1) 100%
+  );
+  margin: auto;
+}
+
+/*Card style and animation*/
+
+/* Cards section*/
+.game__box-table-cards {
+  margin: auto;
+  width: 1500px;
+  height: 633px;
+  background: transparent;
+  position: absolute;
+  z-index: 50;
+  top: 722px;
   display: flex;
   flex-direction: column;
 }
 
-.flex-box-container-1 div {
-  /* VER FLEX HORIZONTAl*/
+.game__box-cards-dealer {
+  height: 50%;
+  text-align: center;
   display: flex;
-  flex: 1;
-  flex-direction: column;
-  /*align-content: stretch;*/
-}
-#dealer-box {
-  /*border-top: 1px solid black ;*/
-  display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
-.flex-container-2 {
-  background: #ebe632;
-}
-.flex-container-2 div {
-  display: flex;
-  flex-wrap: wrap;
-  background: #ebe632;
-  height: 300px;
+.game__box-cards-player {
   text-align: center;
-}
-
-#your-box {
+  height: 50%;
   display: flex;
   justify-content: center;
 }
-.flex-container-2 img {
-  width: 150px;
-  height: 200px;
-  padding: 10px;
-}
-
-#title {
-  border-left: 6px solid red;
-  border-right: 6px solid red;
-  background-color: lightgrey;
-  width: 50%;
-  margin: 0 auto;
-}
-.container-2 {
-  padding: 10px;
-  background: #ebe632;
-  height: 200px;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-bottom-style: solid;
-  border-bottom-color: #8b4513;
-  border-bottom-width: 30px;
-}
-
-.flex-box-container-1 {
-  display: flex;
-  flex-wrap: wrap;
-  border-top: 1px solid black;
-  background: #ebe632;
-}
-.flex-container-bet {
-  border-radius: 100%;
-
-  padding: 10px;
-  margin: 0 auto;
-  border-style: solid;
-  width: 30%;
+/*Buttons section*/
+.game__buttons {
   text-align: center;
-  background: #b7b31d;
-  height: 150px;
+  height: 15%;
+  background-color: #0b3;
+}
+.game__buttons-input {
+  font-size: 1.5em;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 100px;
+}
+.game__buttons-button {
+  display: inline-block;
+  height: 40px;
+  width: 50px;
+  background-color: red;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px;
 }
 
-table,
-th,
-td {
-  border: 1px solid black;
-  padding: 10px;
+/*Stats section*/
+.game__stats {
+  height: 15%;
+  background-color: #093;
+  text-align: center;
 }
 
-.flex-blackjack-row-2 {
-  padding: 10px;
-}
-
-#blackjack-hit-btn,
-#blackjack-stand-btn {
-  margin: 0 auto;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s;
-  -wekit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-}
-
-#blackjack-deal-btn {
-  margin: 0 auto;
-  opacity: 1;
-  transition: all 0.3s;
-  -wekit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-}
-
-.flex-container-3 {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 50%;
-  align-items: center;
+.game__stats h3 {
 }

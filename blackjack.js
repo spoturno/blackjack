@@ -8,8 +8,12 @@ document
   .querySelector("#deal-button")
   .addEventListener("click", dealButton);
 
+document
+	.querySelector("#bet-button")
+	.addEventListener("click", addBet);
+
 let blackjackGame = {
-  you: { scoreSpan: "#player-result", div: "#game__box-player", score: 0, standing: false },
+  you: { scoreSpan: "#player-result", div: "#game__box-player",balanceSpan:"#game-money",streakSpan:"#game-streak", score: 0, standing: false, balance:1000, streak:0},
   dealer: { scoreSpan: "#dealer-result", div: "#game__box-dealer", score: 0 },
   cards: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "J", "Q", "A"],
   suits: ["S", "C", "H", "D"],
@@ -91,6 +95,10 @@ function showCard(card, player) {
 	image.src = `images/${card[0]}${card[1]}.png`;
 	image.style.height = "200px"
 	image.style.width = "150px"
+	//make cards stack in player box (fix position)
+	if(player["div"] ==="#game__box-player"){
+		image.style.position = "absolute"
+	}
     document.querySelector(player["div"]).appendChild(image);
     hitSound.play();
   }
@@ -263,18 +271,23 @@ function computeWinner() {
 	else if (winner === YOU) {
 		document.querySelector(YOU["scoreSpan"]).textContent = "WON (" + YOU["score"] + ")";
 		document.querySelector(YOU["scoreSpan"]).style.color = "green";
+		winChangeBalance(winner);
+		upgradeStreak(winner)
 	} 
 	// If the dealer is the winner, then show it
 	else if (winner === DEALER) {
 		document.querySelector(DEALER["scoreSpan"]).textContent = "WON (" + DEALER["score"] + ")";
 		document.querySelector(DEALER["scoreSpan"]).style.color = "green";
+		upgradeStreak(winner)
 	}
-	//If it is a draw
+	//If it's a draw, then show it in both
 	else if (winner === "DRAW"){
 		document.querySelector(YOU["scoreSpan"]).textContent = "DRAW (" + YOU["score"] + ")";
 		document.querySelector(DEALER["scoreSpan"]).textContent = "DRAW (" + DEALER["score"] + ")";
 		document.querySelector(YOU["scoreSpan"]).style.color = "yellow";
 		document.querySelector(DEALER["scoreSpan"]).style.color = "yellow";
+		winChangeBalance(winner);
+		upgradeStreak(winner);
 
 	}
 
@@ -284,29 +297,38 @@ function computeWinner() {
 	togButton("stand", false, true);
 }
 
-// Not used anymore
-function showWinner() {
-	let winner = computeWinner();
-	
-	// If you are the winner, then show it
-	if (winner === YOU) {
-		document.querySelector(YOU["scoreSpan"]).textContent = "WON";
-		document.querySelector(YOU["scoreSpan"]).style.color = "green";
-	// If the dealer is the winner, then show it
-	} else if (winner === DEALER) {
-		document.querySelector(DEALER["scoreSpan"]).textContent = "WON";
-		document.querySelector(DEALER["scoreSpan"]).style.color = "green";
-	} else {
-		// Keep playing
-		return;
+function addBet() {
+	let BET = parseInt(document.querySelector("#bet-input").value);
+	if(YOU["balance"] > 0 && YOU["balance"] > BET){
+		YOU["balance"]-=BET;
+		console.log(YOU["balance"])
+		document.querySelector(YOU["balanceSpan"]).textContent = YOU["balance"];
+	} else{
+		// screen message (TODO)
+		console.log("No balance aviable")
 	}
 
-	// Make deal button visible again, in order to play a new game
-	var obj = document.querySelector("#blackjack-deal-btn");
-	obj.style.opacity = "0";
-	window.setTimeout(function removeThis() {
-		obj.style.display = "none";
-	}, 300);
 }
 
-function addBet() {}
+const winChangeBalance = (winner) => {
+	let BET = parseInt(document.querySelector("#bet-input").value);
+	//if win return profit  
+	if(winner === YOU){
+		YOU["balance"]+= BET*2; 
+		document.querySelector(YOU["balanceSpan"]).textContent = YOU["balance"];
+	}
+	else if (winner === "DRAW" ){
+		YOU["balance"]+=BET;
+	}
+
+	console.log("finale balance: ", YOU["balance"])
+}
+
+const upgradeStreak = (winner) => {
+	if(winner === YOU) YOU["streak"]++;
+	else if(winner === "DRAW") return;
+	else if(winner === DEALER) YOU["streak"]=0;
+
+	document.querySelector(YOU["streakSpan"]).textContent = YOU["streak"];
+	console.log(YOU["streak"])
+}
