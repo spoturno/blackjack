@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="#" />
+    <meta />
+  </head>
+  <body>
+    <div class="game">
+      <div class="game__header">
+        <h1>Blackjack</h1>
+      </div>
+      <div class="game__box">
+        <div class="game__box-table">
+          <div class="game__box-table-cards">
+            <div class="game__box-cards-dealer" id="game__box-dealer"></div>
+            <div class="game__box-points-dealer">
+              Dealer: <span id="dealer-result">0</span>
+            </div>
+            <div class="game__box-cards-player" id="game__box-player"></div>
+            <div class="game__box-points-player">
+              You: <span id="player-result">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="game__buttons">
+        <input
+          class="game__buttons-input"
+          type="number"
+          id="bet-input"
+          value="100"
+        />
+        <button class="game__buttons-button" id="bet-button">Bet</button>
+        <button class="game__buttons-button" id="deal-button">Deal</button>
+        <button class="game__buttons-button" id="stand-button">Stand</button>
+        <button class="game__buttons-button" id="hit-button">Hit</button>
+      </div>
+      <div class="game__stats">
+        <h3>Balance: <b>$</b><span id="game-money">1000</span></h3>
+        <h3>Win streak: <span id="game-streak">0</span></h3>
+        <h3><a href="#">History</a></h3>
+        <h3><a href="#">Rules</a></h3>
+        <h3><a href="#">Login</a></h3>
+      </div>
+    </div>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
+
+<!--Notas en Desarrollo
+
+> fix cards position in player box
+> fix game__box-points boxes 
+> animate showing cards
+
+-->
