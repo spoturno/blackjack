@@ -96,15 +96,13 @@ function showCard(card, player) {
 	image.style.height = "200px"
 	image.style.width = "150px"
 	//make cards stack in player box (fix position)
-	if(player["div"] ==="#game__box-player"){
-		image.style.position = "absolute"
-	}
     document.querySelector(player["div"]).appendChild(image);
     hitSound.play();
   }
 }
 
 function updateScore(card, player) {
+	//fix problem if As comes first
   if (card === "A") {
     if (player["score"] + blackjackGame["cardsMap"][card][1] <= 21) {
       player["score"] += blackjackGame["cardsMap"][card][1];
@@ -301,7 +299,7 @@ function addBet() {
 	let BET = parseInt(document.querySelector("#bet-input").value);
 	if(YOU["balance"] > 0 && YOU["balance"] > BET){
 		YOU["balance"]-=BET;
-		console.log(YOU["balance"])
+		console.log("betting:",YOU["balance"])
 		document.querySelector(YOU["balanceSpan"]).textContent = YOU["balance"];
 	} else{
 		// screen message (TODO)

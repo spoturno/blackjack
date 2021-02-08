@@ -79,6 +79,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .game__box-cards-player {
@@ -86,12 +87,14 @@ body {
   height: 50%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 /*Buttons section*/
 .game__buttons {
+  border-top: 1px solid black;
   text-align: center;
   height: 15%;
-  background-color: #0b3;
+  background-color: #093;
 }
 .game__buttons-input {
   font-size: 1.5em;
@@ -108,14 +111,30 @@ body {
   border: 2px solid black;
   border-radius: 5px;
   margin: 10px;
+  font-size: 15px;
 }
-
+#bet-button {
+  background-color: yellow;
+}
+#stand-button {
+  background-color: red;
+}
+#hit-button {
+  background-color: #f93;
+}
+#deal-button {
+  background-color: aqua;
+}
 /*Stats section*/
 .game__stats {
+  color: #fff;
   height: 15%;
-  background-color: #093;
+  background-color: #222;
   text-align: center;
 }
 
 .game__stats h3 {
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 30px;
 }
