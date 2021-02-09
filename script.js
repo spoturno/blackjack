@@ -18,8 +18,14 @@ let blackjack = {
     standing: false,
     balance: 1000,
     streak: 0,
+    hand: [],
   },
-  dealer: { scoreSpan: "#dealer-result", div: "#game__box-dealer", score: 0 },
+  dealer: {
+    scoreSpan: "#dealer-result",
+    div: "#game__box-dealer",
+    score: 0,
+    hand: [],
+  },
   cardsMap: {
     2: 2,
     3: 3,
@@ -42,7 +48,6 @@ let DEALER = blackjack["dealer"];
 let BET = parseInt(document.querySelector("#bet-input").value);
 const deck = new Deck();
 deck.shuffle();
-let card = deck.cards.pop();
 
 function dealButton() {
   // Resets the players score and cards
@@ -71,13 +76,6 @@ function hitButton() {
   if (YOU["score"] > 21) standButton();
 }
 
-function standButton() {
-  // If you pressed stand, then return to avoid bugs
-  if (YOU["standing"]) return;
-  YOU["standing"] = true;
-  togButton("hit", false, true);
-}
-
 function addBet() {
   if (YOU["balance"] > 0 && YOU["balance"] > BET) {
     YOU["balance"] -= BET;
@@ -93,12 +91,13 @@ function addBet() {
 function resetGame() {
   YOU["score"] = 0;
   YOU["standing"] = false; // If you pressed stand, then you wont be able to pick more cards. Needed in order to make the game finish if no one is on "bust" state
+  YOU["hand"] = [];
   document.getElementById("game__box-player").innerHTML = "";
   document.querySelector(YOU["scoreSpan"]).textContent = " " + YOU["score"];
   document.querySelector(YOU["scoreSpan"]).style.color = "black";
 
   DEALER["score"] = 0;
-  DEALER["div"].innerHTML = "";
+  DEALER["hand"] = [];
   document.getElementById("game__box-dealer").innerHTML = "";
   document.querySelector(DEALER["scoreSpan"]).textContent =
     " " + DEALER["score"];
@@ -113,12 +112,31 @@ function dealCardsTimer(player, time) {
 
 function dealCARDS(player) {
   let card = deck.cards.pop();
+  addCardToHand(player, card.value);
   showCard(card, player);
   updateScore(card.value, player);
   showScore(player);
 
   // After every card deal, the game should check if there's a winner
   computeWinner();
+}
+
+function standButton() {
+  // If you pressed stand, then return to avoid bugs
+  if (YOU["standing"]) return;
+  YOU["standing"] = true;
+  togButton("hit", false, true);
+
+  //fix
+  const finalDeal = window.setInterval(function () {
+    dealCARDS(DEALER);
+    if (DEALER["score"] >= 17) clearInterval(finalDeal);
+  }, 750);
+}
+
+function addCardToHand(player, card) {
+  //array of values without suit
+  player["hand"].push(card);
 }
 
 function showCard(card, player) {
@@ -137,15 +155,19 @@ function updateScore(card, player) {
   //fix problem if As comes first
   //As is avalueted as 1 or 11 depending on player cards hand
   //when player draws an ace and the score exceedes 21, As value change to 1
-  console.log(card);
   if (card === "A") {
-    if (player["score"] + blackjackGame["cardsMap"][card][1] <= 21) {
-      player["score"] += blackjackGame["cardsMap"][card][1];
+    if (player["score"] + blackjack["cardsMap"][card][1] <= 21) {
+      player["score"] += blackjack["cardsMap"][card][1];
     } else {
-      player["score"] += blackjackGame["cardsMap"][card][0];
+      player["score"] += blackjack["cardsMap"][card][0];
     }
   } else {
-    player["score"] += blackjackGame["cardsMap"][card];
+    player["score"] += blackjack["cardsMap"][card];
+    if(player["hand"].length > 1){
+      if(player["hand"][player["hand"].length - 2] === "A"){
+        player["score"]-=10;
+      }
+    }
   }
 }
 
@@ -192,6 +214,7 @@ function computeWinner() {
   }
 
   // Keep playing
+  console.log(winner);
   if (!winner) {
     return;
   }
@@ -273,7 +296,7 @@ function togButton(name, state, instant) {
   return false;
 }
 
-function winChangeBalance() {
+function winChangeBalance(winner) {
   //if win return profit
   if (winner === YOU) {
     YOU["balance"] += BET * 2;
@@ -283,7 +306,7 @@ function winChangeBalance() {
   console.log("finale balance: ", YOU["balance"]);
 }
 
-function upgradeStreak() {
+function upgradeStreak(winner) {
   if (winner === YOU) YOU["streak"]++;
   else if (winner === "DRAW") return;
   else if (winner === DEALER) YOU["streak"] = 0;
