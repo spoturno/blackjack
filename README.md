@@ -12,7 +12,7 @@ Is a JavaScipt game so familiarity with JavaScipt is required. It is also recomm
 
 ### Getting started
 
-Use git or the download button (on the top left) to download the source code. If you want to see the actual progress go to the "Fixing" branch, then open your browser and open `index.html` file on the browser(CTRL + O).
+Use git or the download button (on the top left) to download the source code. If you want to see the actual progress go to the "main" branch, then open your browser and open `index.html` file on the browser(CTRL + O).
 
 ## Contribute
 
