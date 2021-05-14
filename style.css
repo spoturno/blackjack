@@ -48,7 +48,7 @@ body {
   height: 1400px;
   width: 1500px;
   border-radius: 0 0 1450px 1450px;
-  border: 15px solid #873600;
+  border: 20px solid #873600;
   background: rgb(0, 142, 58);
   background: radial-gradient(
     circle,
@@ -91,7 +91,6 @@ body {
 }
 /*Buttons section*/
 .game__buttons {
-  border-top: 1px solid black;
   text-align: center;
   height: 15%;
   background-color: #093;
@@ -105,11 +104,11 @@ body {
 .game__buttons-button {
   display: inline-block;
   height: 40px;
-  width: 50px;
+  width: 70px;
   background-color: red;
   text-align: center;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
   margin: 10px;
   font-size: 15px;
 }
@@ -137,4 +136,5 @@ body {
   display: inline-block;
   margin-left: 50px;
   margin-top: 30px;
+  font-size: 25px;
 }
