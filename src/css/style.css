@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+}
+
+.game__header {
+  text-align: center;
+}
+
+.game {
+  height: 100vh;
+  width: 100vw;
+  background-color: #acc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.game__box {
+  margin: auto;
+  font-size: 2em;
+  height: 70%;
+  text-align: center;
+  background-color: #093;
+}
+
+/*Header section*/
+.game__header {
+  position: relative;
+  z-index: 10;
+  background-color: yellow;
+}
+
+/*Table section*/
+.game__box-table {
+  position: absolute;
+  margin: auto;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  height: 1400px;
+  width: 1500px;
+  border-radius: 0 0 1450px 1450px;
+  border: 20px solid #873600;
+  background: rgb(0, 142, 58);
+  background: radial-gradient(
+    circle,
+    rgba(0, 142, 58, 1) 0%,
+    rgba(0, 54, 22, 1) 100%
+  );
+  margin: auto;
+}
+
+/*Card style and animation*/
+
+/* Cards section*/
+.game__box-table-cards {
+  margin: auto;
+  width: 1500px;
+  height: 633px;
+  background: transparent;
+  position: absolute;
+  z-index: 50;
+  top: 722px;
+  display: flex;
+  flex-direction: column;
+}
+
+.game__box-cards-dealer {
+  height: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.game__box-cards-player {
+  text-align: center;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Buttons section*/
+.game__buttons {
+  text-align: center;
+  height: 15%;
+  background-color: #093;
+}
+.game__buttons-input {
+  font-size: 1.5em;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 100px;
+}
+.game__buttons-button {
+  display: inline-block;
+  height: 40px;
+  width: 70px;
+  background-color: red;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 10px;
+  font-size: 15px;
+}
+#bet-button {
+  background-color: yellow;
+}
+#stand-button {
+  background-color: red;
+}
+#hit-button {
+  background-color: #f93;
+}
+#deal-button {
+  background-color: aqua;
+}
+/*Stats section*/
+.game__stats {
+  color: #fff;
+  height: 15%;
+  background-color: #222;
+  text-align: center;
+}
+
+.game__stats h3 {
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 30px;
+  font-size: 25px;
+}
+.game__stats > h3 > a {
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.game__stats > h3 > a:hover {
+  color: #000;
+  background-color: #fff;
+}
