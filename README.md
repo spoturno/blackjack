@@ -20,9 +20,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ### Future upgrades
 
-- [] Make local database
-- [] Add a User implementation
-- [] Add some rules section
+- [  ] Make local database
+- [  ] Add a User implementation
+- [  ] Add some rules section
 
 ## Lincense
 
