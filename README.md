@@ -7,12 +7,15 @@ Blackjack game made with HTML, CSS, JavaScipt
 ## Installation
 
 ### Prerequisites
+- Be familiar with [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Node.js Installed : [link](https://nodejs.org/en/docs)
+- Be familiar with [Node.js](https://nodejs.org/en/docs)
+- Git Installed : [link](https://git-scm.com/downloads)
 
-Is a JavaScipt game so familiarity with JavaScipt is required. It is also recommended that you have git installed.
 
 ### Getting started
 
-Use git or the download button (on the top left) to download the source code. If you want to see the actual progress go to the "master" branch, then open your browser and open `index.html` file on the browser(CTRL + O).
+Use git or the download button (on the top left) to download the source code. If you want to see the actual progress go to the "main" branch. To open a >= ES6 module script you need to run your script from a local server, open directly the file with a browser will not work. I suggest you download [Live Server](https://www.npmjs.com/package/live-server) npm package. If you're coding on Visual Studio Code just install the extension and open `index.html` with live-server.
 
 ## Contribute
 
@@ -20,7 +23,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ### Future upgrades
 
-- Make local database
-- Add a User implementation
-- Add some rules section
+- User Authentication with Express
+- Array of last 20 hands or so
+- Animation of cards
+- Improve betting system
 
