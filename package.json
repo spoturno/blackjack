@@ -1,0 +1,26 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "blackjack game made with html, css and js",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spoturno/Blackjack.git"
+  },
+  "author": "Tomas Spoturno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spoturno/Blackjack/issues"
+  },
+  "homepage": "https://github.com/spoturno/Blackjack#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
