@@ -1,13 +1,19 @@
 import Deck from "./deck.js";
 
-//new implementation of deck.
+//set stand and hit buttons initially unabled
+togButton("stand", false);
+togButton("hit", false);
+
+//target the buttons and set event listeners
 document.querySelector("#deal-button").addEventListener("click", dealButton);
 document.querySelector("#hit-button").addEventListener("click", hitButton);
 document.querySelector("#stand-button").addEventListener("click", standButton);
 document.querySelector("#bet-button").addEventListener("click", addBet);
 
+//new audio object
 const hitSound = new Audio("audio/swish.m4a");
 
+//create blakcjack object for game 
 let blackjack = {
   you: {
     scoreSpan: "#player-result",
@@ -248,6 +254,8 @@ function computeWinner() {
   togButton("hit", false, true);
   togButton("stand", false, true);
 }
+
+
 
 // togButton: string name, bool state [[, bool instant]]
 // name: button name
