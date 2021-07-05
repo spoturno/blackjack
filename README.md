@@ -4,7 +4,7 @@ Blackjack game made with HTML, CSS, JavaScipt
 
 > Blackjack game made with HTML, CSS and JavaScript. Hope you like it :smiley:
 
-## installation
+## Installation
 
 ### Prerequisites
 
@@ -20,10 +20,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ### Future upgrades
 
-- [  ] Make local database
-- [  ] Add a User implementation
-- [  ] Add some rules section
+- Make local database
+- Add a User implementation
+- Add some rules section
 
-## Lincense
-
-This project can be used, reproduced, distributed and modified freely for any non-commercial purposes but always keeping the author's name and copyright clauses. Other than that, just use this project as you wish but never sell it!
